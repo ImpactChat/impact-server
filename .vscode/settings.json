@@ -3,6 +3,5 @@
     "python.linting.pylintEnabled": false,
     "python.linting.pylamaEnabled": true,
     "python.linting.enabled": true,
-    "python.formatting.provider": "yapf",
-    "restructuredtext.confPath": "${workspaceFolder}/docs"
+    "python.formatting.provider": "yapf"
 }

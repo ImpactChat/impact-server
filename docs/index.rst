@@ -7,11 +7,11 @@ Welcome to Impact Suite's documentation!
 ========================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 4
+   :caption: Apps:
 
-   modules/chat/models.rst
-   modules/admin/models.rst
+   modules/admin/index.rst
+   modules/chat/index.rst
 
 
 Indices and tables

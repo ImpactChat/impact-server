@@ -5,7 +5,7 @@ from django.db import models
 
 class User(AbstractUser):
     """
-    Custom user model, adds the ``avatar`` and ``locale`` fields
+    Custom User model, adds the ``avatar`` and ``locale`` fields
     """
     avatar = models.CharField(max_length=1,
                               default="U",

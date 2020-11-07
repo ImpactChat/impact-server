@@ -6,7 +6,8 @@ class Channel(models.Model):
     """
     Represents a chat channel. If ``visible`` is set to ``False``, the channel
     shouldn't be included in a list of channels. This is prefered as it
-    conserves the messages as opposed to simply deleting the channel.
+    conserves the messages in the database as opposed to simply deleting the
+    channel.
     """
     class Meta:
         permissions = [
