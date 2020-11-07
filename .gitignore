@@ -1,0 +1,9 @@
+env
+__pycache__
+
+docs/_build
+docs/_static
+docs/_templates
+
+
+db.sqlite3
