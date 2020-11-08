@@ -1,7 +1,7 @@
 {
     "scripts": {
       "dokku": {
-        "predeploy": "pip install -r requirements.txt && cd docs make html"
+        "predeploy": "apt-get install python3.6 && pip install -r requirements.txt && cd docs make html"
       }
     }
   }
