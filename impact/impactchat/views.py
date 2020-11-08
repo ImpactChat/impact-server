@@ -5,7 +5,7 @@ from .serializers import ChannelSerializer, MessageSerializer
 from .models import Channel, Message
 
 
-class ChannelViewSet(viewsets.ModelViewSet):
+class ChannelViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows Channels to be viewed
     """
@@ -14,9 +14,9 @@ class ChannelViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-class MessageViewSet(viewsets.ModelViewSet):
+class MessageViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    API endpoint that allows Messages to be viewed or edited.
+    API endpoint that allows Messages to be viewed.
     """
     serializer_class = MessageSerializer
     permission_classes = [permissions.IsAuthenticated]

@@ -8,7 +8,7 @@ Welcome to Impact Suite's documentation!
 
 .. toctree::
    :maxdepth: 4
-   :caption: Apps:
+   :caption: Apps
 
    modules/admin/index.rst
    modules/chat/index.rst

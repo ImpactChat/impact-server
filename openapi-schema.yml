@@ -1,0 +1,131 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /api/chat/channels/:
+    get:
+      operationId: listChannels
+      description: API endpoint that allows Channels to be viewed
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Channel'
+          description: ''
+      tags:
+      - api
+  /api/chat/channels/{id}/:
+    get:
+      operationId: retrieveChannel
+      description: API endpoint that allows Channels to be viewed
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this channel.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Channel'
+          description: ''
+      tags:
+      - api
+  /api/chat/messages/:
+    get:
+      operationId: listMessages
+      description: API endpoint that allows Messages to be viewed.
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Message'
+          description: ''
+      tags:
+      - api
+  /api/chat/messages/{id}/:
+    get:
+      operationId: retrieveMessage
+      description: API endpoint that allows Messages to be viewed.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+          description: ''
+      tags:
+      - api
+components:
+  schemas:
+    Channel:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the channel
+          maxLength: 32
+        pk:
+          type: integer
+          readOnly: true
+      required:
+      - name
+    Message:
+      type: object
+      properties:
+        content:
+          type: string
+          maxLength: 2000
+        author:
+          type: object
+          properties:
+            username:
+              type: string
+              description: Required. 150 characters or fewer. Letters, digits and
+                @/./+/-/_ only.
+              pattern: ^[\w.@+-]+\z
+              maxLength: 150
+            avatar:
+              type: string
+              description: Avatar of the user
+              maxLength: 1
+            locale:
+              enum:
+              - en
+              - fr
+              type: string
+              description: Which language does the user use
+            pk:
+              type: integer
+              readOnly: true
+          required:
+          - username
+        timestamp:
+          type: string
+          format: date-time
+        pk:
+          type: integer
+      required:
+      - content
+      - author
+      - timestamp
+      - pk

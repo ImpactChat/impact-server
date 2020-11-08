@@ -1,5 +1,6 @@
 env
 __pycache__
+test
 
 docs/_build
 docs/_static

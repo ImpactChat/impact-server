@@ -17,7 +17,6 @@ from django.utils.translation import gettext_lazy as _
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -29,12 +28,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
     "impactadmin",
     "impactchat",
+
+    "rest_framework",
+    "corsheaders",
 
     "django.contrib.admin",
     "django.contrib.auth",
@@ -46,6 +47,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+
+    "corsheaders.middleware.CorsMiddleware",
+
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -74,7 +78,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "impact.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -85,29 +88,31 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.\
-                    UserAttributeSimilarityValidator",
+        "NAME":
+        "django.contrib.auth.password_validation.\
+UserAttributeSimilarityValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.\
-                    MinimumLengthValidator",
+        "NAME":
+        "django.contrib.auth.password_validation.\
+MinimumLengthValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.\
-                    CommonPasswordValidator",
+        "NAME":
+        "django.contrib.auth.password_validation.\
+CommonPasswordValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.\
-                    NumericPasswordValidator",
+        "NAME":
+        "django.contrib.auth.password_validation.\
+NumericPasswordValidator",
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -122,16 +127,19 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = "/static/"
-
 
 AUTH_USER_MODEL = 'impactadmin.User'
 
 LANGUAGES = [
     ("en", _("English")),
     ("fr", _("French")),
+]
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8080",
 ]
