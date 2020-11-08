@@ -1,7 +1,0 @@
-{
-    "scripts": {
-      "dokku": {
-        "predeploy": "apt-get install python-pip && pip3 install -r requirements.txt && cd docs make html"
-      }
-    }
-  }
