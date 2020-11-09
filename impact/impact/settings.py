@@ -33,10 +33,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     "impactadmin",
     "impactchat",
-
     "rest_framework",
     "corsheaders",
-
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -47,9 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-
     "corsheaders.middleware.CorsMiddleware",
-
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -98,8 +94,7 @@ AUTH_PASSWORD_VALIDATORS = [
 UserAttributeSimilarityValidator",
     },
     {
-        "NAME":
-        "django.contrib.auth.password_validation.\
+        "NAME": "django.contrib.auth.password_validation.\
 MinimumLengthValidator",
     },
     {
@@ -139,7 +134,13 @@ LANGUAGES = [
     ("fr", _("French")),
 ]
 
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8080",
+CORS_ALLOWED_REGEXES = [
+    r"https?://(localhost|127.0.0\.1)(:[0-9]+)?",
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ]
+}
