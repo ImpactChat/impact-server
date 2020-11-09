@@ -1,7 +1,7 @@
 {
     "scripts": {
       "dokku": {
-        "predeploy": "cd docs && make html"
+        "predeploy": "cd docs && make html && python -V"
       }
     }
   }
