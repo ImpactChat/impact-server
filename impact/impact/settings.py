@@ -134,9 +134,10 @@ LANGUAGES = [
     ("fr", _("French")),
 ]
 
-CORS_ALLOWED_REGEXES = [
-    r"https?://(localhost|127.0.0\.1)(:[0-9]+)?",
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"https?:\/\/(localhost|127.0.0\.1)(:[0-9]+)?",
 ]
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
