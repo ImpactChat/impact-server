@@ -33,8 +33,12 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     "impactadmin",
     "impactchat",
+
+    "channels",
+
     "rest_framework",
     "corsheaders",
+
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -135,6 +139,7 @@ LANGUAGES = [
 ]
 
 CORS_ALLOWED_ORIGIN_REGEXES = [
+    # localhost or 127.0.0.1 on http or https with or without a port
     r"https?:\/\/(localhost|127.0.0\.1)(:[0-9]+)?",
 ]
 
@@ -144,4 +149,14 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ]
+}
+
+ASGI_APPLICATION = "impact.asgi.application"
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
 }
