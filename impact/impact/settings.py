@@ -33,12 +33,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     "impactadmin",
     "impactchat",
-
     "channels",
-
     "rest_framework",
     "corsheaders",
-
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -143,11 +140,13 @@ CORS_ALLOWED_ORIGIN_REGEXES = [
     r"https?:\/\/(localhost|127.0.0\.1)(:[0-9]+)?",
 ]
 
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
     ]
 }
 
