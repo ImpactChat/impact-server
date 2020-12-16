@@ -3,12 +3,10 @@ from djangochannelsrestframework import permissions
 from channels.consumer import AsyncConsumer
 from djangochannelsrestframework.generics import GenericAsyncAPIConsumer
 from djangochannelsrestframework.mixins import (
-    ListModelMixin,
-)
+    ListModelMixin, )
 from typing import Dict, Any
 import jwt
 from django.conf import settings
-
 
 from .models import Channel
 from impactadmin.models import User
@@ -34,13 +32,14 @@ class EchoConsumer(AsyncJsonWebsocketConsumer):
 
 
 class TokenAuth(permissions.BasePermission):
-    async def has_permission(
-        self, scope: Dict[str, Any], consumer: AsyncConsumer, action: str, **kwargs
-    ) -> bool:
+    async def has_permission(self, scope: Dict[str,
+                                               Any], consumer: AsyncConsumer,
+                             action: str, **kwargs) -> bool:
         token = kwargs['data']['token']
         print("Token:", token)
         try:
-            print("Decoded:", jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256']))
+            print("Decoded:",
+                  jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256']))
         except jwt.exceptions.ExpiredSignatureError:
             print("Expired")
             return False
@@ -50,10 +49,10 @@ class TokenAuth(permissions.BasePermission):
 class ChannelConsumer(ListModelMixin, GenericAsyncAPIConsumer):
     queryset = Channel.objects.all()
     serializer_class = ChannelSerializer
-    permission_classes = (TokenAuth,)
+    permission_classes = (TokenAuth, )
 
 
 class UserConsumer(ListModelMixin, GenericAsyncAPIConsumer):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = (permissions.AllowAny,)
+    permission_classes = (permissions.AllowAny, )
