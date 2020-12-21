@@ -1,1 +1,1 @@
-web: cd impact && daphne impact.asgi:application
+web: sh start.sh
