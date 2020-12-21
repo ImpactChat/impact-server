@@ -23,7 +23,7 @@ django-appconf==1.0.4
 django-cors-headers==3.5.0
 djangochannelsrestframework==0.2.0
 djangorestframework==3.12.2
-djangorestframework-simplejwt==4.4.0
+djangorestframework-simplejwt==4.6.0
 docutils==0.16
 hiredis==1.1.0
 hyperlink==20.0.1
