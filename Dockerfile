@@ -7,5 +7,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 WORKDIR /app/impact
 EXPOSE 8000:8000
-COPY 
+
 CMD [ "daphne", "impact.asgi:application", "-b", "0.0.0.0" ]
+
