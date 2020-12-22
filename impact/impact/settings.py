@@ -26,10 +26,12 @@ SECRET_KEY = "-f6044a5+xh4z*gy@qdww*&6^f_-t)f4!60$6dnpd4h!#re&iy"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0", "impact.tommcn.mcnamer.ca"]
+ALLOWED_HOSTS = [
+    "localhost", "127.0.0.1", "0.0.0.0", "impact.tommcn.mcnamer.ca"
+]
+
 
 # Application definition
-
 INSTALLED_APPS = [
     "impactadmin",
     "impactchat",
@@ -159,6 +161,5 @@ CHANNEL_LAYERS = {
         },
     },
 }
-
 
 STATIC_ROOT = BASE_DIR / "static"
