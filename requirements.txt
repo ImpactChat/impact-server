@@ -26,7 +26,7 @@ django-cors-headers==3.5.0
 django-rest-firebase-auth==0.2.0
 djangochannelsrestframework==0.2.0
 djangorestframework==3.12.2
-djangorestframework-simplejwt==4.4.0
+djangorestframework-simplejwt==4.6.0
 docutils==0.16
 firebase-admin==4.5.0
 google-api-core==1.24.1
