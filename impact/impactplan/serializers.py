@@ -14,4 +14,5 @@ class CodeSerializer(serializers.HyperlinkedModelSerializer):
             'code',
             'link',
             'posted',
+            'pk'
         ]

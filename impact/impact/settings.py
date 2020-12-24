@@ -142,11 +142,23 @@ CORS_ALLOWED_ORIGIN_REGEXES = [
     # localhost or 127.0.0.1 on http or https with or without a port
     r"https?:\/\/(localhost|127.0.0\.1)(:[0-9]+)?",
 ]
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'http_authorization',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
         'firebase_auth.authentication.FirebaseAuthentication'
     ],
     'DEFAULT_PARSER_CLASSES': [
