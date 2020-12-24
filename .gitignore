@@ -2,6 +2,8 @@ env
 __pycache__
 test
 
+credentials.json
+
 docs/_build
 docs/_static
 docs/_templates

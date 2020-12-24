@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
-  title: 'OAS Schema'
-  version: '0.0.1'
+  title: ''
+  version: ''
 paths:
   /api/chat/channels/:
     get:
@@ -75,6 +75,123 @@ paths:
           description: ''
       tags:
       - api
+  /api/codes/codes/:
+    get:
+      operationId: listClasses
+      description: API endpoint that allows Channels to be viewed
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Code'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createClasse
+      description: API endpoint that allows Channels to be viewed
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Code'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Code'
+          description: ''
+      tags:
+      - api
+  /api/codes/codes/{id}/:
+    get:
+      operationId: retrieveClasse
+      description: API endpoint that allows Channels to be viewed
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this classe.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Code'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateClasse
+      description: API endpoint that allows Channels to be viewed
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this classe.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Code'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Code'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateClasse
+      description: API endpoint that allows Channels to be viewed
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this classe.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Code'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Code'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyClasse
+      description: API endpoint that allows Channels to be viewed
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this classe.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
 components:
   schemas:
     Channel:
@@ -129,3 +246,37 @@ components:
       - author
       - timestamp
       - pk
+    Code:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 127
+        classe_groupe:
+          type: string
+          maxLength: 15
+        prof:
+          type: string
+          maxLength: 31
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+        code:
+          type: integer
+          description: Le code du cours pour Zoom
+        link:
+          type: string
+          maxLength: 255
+        posted:
+          type: boolean
+      required:
+      - name
+      - classe_groupe
+      - prof
+      - start
+      - end
+      - code
+      - link

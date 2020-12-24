@@ -35,6 +35,7 @@ ALLOWED_HOSTS = [
 INSTALLED_APPS = [
     "impactadmin",
     "impactchat",
+    "impactplan",
     "channels",
     "rest_framework",
     "corsheaders",
@@ -146,6 +147,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'firebase_auth.authentication.FirebaseAuthentication'
     ],
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser',
@@ -163,3 +165,7 @@ CHANNEL_LAYERS = {
 }
 
 STATIC_ROOT = BASE_DIR / "static"
+
+FIREBASE_AUTH = {
+    "SERVICE_ACCOUNT_KEY_FILE": "../credentials.json"
+}
