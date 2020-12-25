@@ -11,8 +11,6 @@ EXPOSE 8000:8000
 ADD docker-entrypoint.sh ./docker-entrypoint.sh
 ADD nginx.conf.sigil ./nginx.conf.sigil
 
-RUN ls
-
 ENTRYPOINT ["sh", "docker-entrypoint.sh"]
 # CMD ["sh", "/storage/docker-entrypoint.sh"]
 # CMD [ "daphne", "impact.asgi:application", "-b", "0.0.0.0" ]
