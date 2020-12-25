@@ -9,6 +9,8 @@ WORKDIR /app/impact
 
 EXPOSE 8000:8000
 COPY ./docker-entrypoint.sh /storage/
-RUN ls /storage
+RUN chmod 755 /storage/docker-entrypoint.sh
 
-ENTRYPOINT [ "sh", "/storage/docker-entrypoint.sh" ]
+RUN ls /storage/
+
+ENTRYPOINT ["/storage/docker-entrypoint.sh"]
