@@ -140,7 +140,7 @@ LANGUAGES = [
 
 CORS_ALLOWED_ORIGIN_REGEXES = [
     # localhost or 127.0.0.1 on http or https with or without a port
-    r"https?:\/\/(localhost|127.0.0\.1)(:[0-9]+)?",
+    r"https?:\/\/(localhost|127\.0\.0\.1)(:[0-9]+)?",
 ]
 CORS_ALLOW_HEADERS = [
     'accept',
