@@ -12,7 +12,7 @@ ADD docker-entrypoint.sh ./docker-entrypoint.sh
 
 RUN ls
 
-ENTRYPOINT ["./docker-entrypoint.sh"]
+ENTRYPOINT ["sh", "docker-entrypoint.sh"]
 # CMD ["sh", "/storage/docker-entrypoint.sh"]
 # CMD [ "daphne", "impact.asgi:application", "-b", "0.0.0.0" ]
 # CMD [ "daphne", "impact.asgi:application", "-b", "0.0.0.0" ]
