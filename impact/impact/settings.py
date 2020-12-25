@@ -179,5 +179,5 @@ CHANNEL_LAYERS = {
 STATIC_ROOT = BASE_DIR / "static"
 
 FIREBASE_AUTH = {
-    "SERVICE_ACCOUNT_KEY_FILE": "../credentials.json"
+    "SERVICE_ACCOUNT_KEY_FILE": "/storage/credentials.json"
 }
