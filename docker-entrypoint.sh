@@ -1,5 +1,7 @@
 #!/bin/sh
 
+ls /storage
+
 # Collect static files
 echo "Collect static files"
 python manage.py collectstatic --noinput
