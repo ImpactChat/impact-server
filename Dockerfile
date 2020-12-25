@@ -8,7 +8,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 WORKDIR /app/impact
 
 EXPOSE 8000:8000
-COPY ./docker-entrypoint.sh /app/impact/
+COPY ./docker-entrypoint.sh /storage
 RUN ls
 
-ENTRYPOINT [ "sh", "/app/impact/docker-entrypoint.sh" ]
+ENTRYPOINT [ "sh", "/storage/docker-entrypoint.sh" ]
