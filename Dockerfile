@@ -15,4 +15,5 @@ RUN ls
 
 # ENTRYPOINT ["/storage/docker-entrypoint.sh"]
 # CMD ["sh", "/storage/docker-entrypoint.sh"]
-CMD [ "daphne",  "impact.asgi:application", "-b", "0.0.0.0" ]
+# CMD [ "daphne", "impact.asgi:application", "-b", "0.0.0.0" ]
+CMD [ "daphne", "impact.asgi:application", "-b", "0.0.0.0" ]
