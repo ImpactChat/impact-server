@@ -9,7 +9,6 @@ WORKDIR /app/impact
 
 EXPOSE 8000:8000
 ADD docker-entrypoint.sh ./docker-entrypoint.sh
-RUN chmod 755 /storage/docker-entrypoint.sh
 
 RUN ls
 
