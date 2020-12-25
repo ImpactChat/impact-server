@@ -9,6 +9,7 @@ WORKDIR /app/impact
 
 RUN ls
 RUN ls ../
+RUN ls /storage
 
 RUN python manage.py collectstatic --no-input
 RUN python manage.py makemigrations
