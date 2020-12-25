@@ -14,4 +14,5 @@ RUN chmod 755 /storage/docker-entrypoint.sh
 RUN cat /storage/docker-entrypoint.sh
 
 # ENTRYPOINT ["/storage/docker-entrypoint.sh"]
-CMD ["sh", "/storage/docker-entrypoint.sh"]
+# CMD ["sh", "/storage/docker-entrypoint.sh"]
+CMD [ "daphne",  "impact.asgi:application", "-b", "0.0.0.0" ]
