@@ -9,6 +9,7 @@ WORKDIR /app/impact
 
 EXPOSE 8000:8000
 ADD docker-entrypoint.sh ./docker-entrypoint.sh
+ADD nginx.conf.sigil ./nginx.conf.sigil
 
 RUN ls
 
