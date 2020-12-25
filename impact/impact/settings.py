@@ -11,11 +11,14 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+import environ
 
 from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+env = environ.Env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -24,12 +27,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "-f6044a5+xh4z*gy@qdww*&6^f_-t)f4!60$6dnpd4h!#re&iy"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False if os.environ.get("DATABASE_URL", None) is not None else True
 
 ALLOWED_HOSTS = [
     "localhost", "127.0.0.1", "0.0.0.0", "impact.tommcn.mcnamer.ca"
 ]
-
 
 # Application definition
 INSTALLED_APPS = [
@@ -87,6 +89,13 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+
+if 'DATABASE_URL' in env:
+    DATABASES["default"] = env.db("DATABASE_URL")
+    DATABASES["default"]["ATOMIC_REQUESTS"] = True
+    DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -179,5 +188,6 @@ CHANNEL_LAYERS = {
 STATIC_ROOT = BASE_DIR / "static"
 
 FIREBASE_AUTH = {
-    "SERVICE_ACCOUNT_KEY_FILE": "/storage/credentials.json"
+    "SERVICE_ACCOUNT_KEY_FILE":
+    "/storage/credentials.json" if not DEBUG else "../credentials.json"
 }
