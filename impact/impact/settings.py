@@ -30,7 +30,6 @@ ALLOWED_HOSTS = [
     "localhost", "127.0.0.1", "0.0.0.0", "impact.tommcn.mcnamer.ca"
 ]
 
-
 # Application definition
 INSTALLED_APPS = [
     "impactadmin",
@@ -179,5 +178,6 @@ CHANNEL_LAYERS = {
 STATIC_ROOT = BASE_DIR / "static"
 
 FIREBASE_AUTH = {
-    "SERVICE_ACCOUNT_KEY_FILE": "../credentials.json"
+    "SERVICE_ACCOUNT_KEY_FILE":
+    "/var/lib/dokku/data/storage/impact/credentials.json"
 }
