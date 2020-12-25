@@ -13,4 +13,5 @@ RUN chmod 755 /storage/docker-entrypoint.sh
 
 RUN ls /storage/
 
-ENTRYPOINT ["/storage/docker-entrypoint.sh"]
+# ENTRYPOINT ["/storage/docker-entrypoint.sh"]
+CMD ["sh", "/storage/docker-entrypoint.sh"]
