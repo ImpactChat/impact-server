@@ -11,4 +11,4 @@ EXPOSE 8000:8000
 COPY ./docker-entrypoint.sh /app/impact
 RUN ls
 
-ENTRYPOINT [ "sh", "./docker-entrypoint.sh" ]
+ENTRYPOINT [ "ls" ]
