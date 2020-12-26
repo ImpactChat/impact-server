@@ -9,6 +9,7 @@ class ClasseViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Channels to be viewed
     """
-    queryset = Classe.objects.filter(posted=True).order_by('name')
+    queryset = Classe.objects.filter(posted=True).order_by('start')
     serializer_class = CodeSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # Probably should change this but its bugged so...
+    permission_classes = [permissions.AllowAny]

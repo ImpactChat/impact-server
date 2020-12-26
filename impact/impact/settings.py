@@ -167,9 +167,9 @@ CORS_ALLOW_HEADERS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
+        'firebase_auth.authentication.FirebaseAuthentication',
         'rest_framework.authentication.BasicAuthentication',
         # 'rest_framework_simplejwt.authentication.JWTAuthentication',
-        'firebase_auth.authentication.FirebaseAuthentication'
     ],
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser',
