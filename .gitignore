@@ -1,7 +1,7 @@
 env
 __pycache__
 test
-
+impact/static/
 credentials.json
 
 docs/_build
