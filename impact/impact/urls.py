@@ -16,8 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from known.views import hi
-
 urlpatterns = [
     path(
         'api/chat/',
@@ -29,5 +27,4 @@ urlpatterns = [
                 namespace="impactplan-api")),
 
     path('admin/', admin.site.urls),
-    path(".well-known/microsoft-identity-association.json", hi)
 ]
