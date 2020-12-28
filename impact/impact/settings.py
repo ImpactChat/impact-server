@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "impactadmin",
     "impactchat",
     "impactplan",
+    "known",
     "channels",
     "rest_framework",
     "corsheaders",
